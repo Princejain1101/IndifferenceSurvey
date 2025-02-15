@@ -47,7 +47,7 @@ if st.session_state["not_buy_ambush_question"] is not None:
                 # st.write("Move Forward")
                 st.session_state["verify_not_buy_ambush_question"] = verify_not_buy_ambush
             else:
-                st.write("Go back to question2")
+                # st.write("Go back to question2")
                 st.session_state["not_buy_ambush_question"] = None
                 st.warning("You have not chosen a correct price for Option2 Airforce1Ambush then. Please try again.")
                 if st.form_submit_button("Try Again"):
