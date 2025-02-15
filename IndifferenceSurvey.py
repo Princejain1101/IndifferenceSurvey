@@ -23,13 +23,17 @@ with st.form(key='buy ambush form at same price'):
     st.write("Price of Option1 AirForce1 is \$" + str(price) + " and Price of Option2 AirForce1Ambush is \$" + str(price))
     same_price = st.radio("Q1. Which sneaker do you prefer?", ("Option1 AirForce1", "Option2 AirForce1Ambush", "indifferent"))
     if st.form_submit_button("Confirm Sneaker at Same Price"):
-        st.session_state["same_price_question"] = same_price
         if same_price == "Option1 AirForce1":
-            st.write("Option1 AirForce1 is chosen")
+            st.write("Option1 AirForce1 is chosen, so you are likely not a right candidate. Please exit the survey.")
+            if st.form_submit_button("Exit the survey"):
+                st.stop()
         elif same_price == "Option2 AirForce1Ambush":
             st.write("Option2 AirForce1Ambush is chosen")
+            st.session_state["same_price_question"] = same_price
         else:
-            st.write("You are indifferent")
+            st.write("You are indifferent which is probably not right. Please exit the survey")
+            if st.form_submit_button("Exit the survey"):
+                st.stop()
 if st.session_state["same_price_question"] is not None:
     with st.form(" Not Buy AirForce1Ambush Price"):
         not_buy_ambush_price = st.number_input("Q2. What price would the Ambush need to be for you to choose the AF1 instead?", min_value=0, max_value=10000, step=1)
