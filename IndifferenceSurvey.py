@@ -36,7 +36,7 @@ with st.form(key='buy ambush form at same price'):
                 st.stop()
 if st.session_state["same_price_question"] is not None:
     with st.form(" Not Buy AirForce1Ambush Price"):
-        not_buy_ambush_price = st.number_input("Q2. What price would the Ambush need to be for you to choose the AF1 instead?", min_value=0, max_value=10000, step=1)
+        not_buy_ambush_price = st.number_input("Q2. What price would the Ambush need to be for you to choose the AF1 instead?", min_value=price+1, max_value=10000, step=1)
         if st.form_submit_button("Confirm Not buy Ambush Price"):
             st.session_state["not_buy_ambush_question"] = not_buy_ambush_price
 if st.session_state["not_buy_ambush_question"] is not None:
