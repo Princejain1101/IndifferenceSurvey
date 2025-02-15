@@ -49,7 +49,9 @@ if st.session_state["not_buy_ambush_question"] is not None:
             else:
                 st.write("Go back to question2")
                 st.session_state["not_buy_ambush_question"] = None
-                st.rerun()
+                st.warning("You have not chosen a correct price for Option2 Airforce1Ambush then. Please try again.")
+                if st.form_submit_button("Try Again"):
+                    st.rerun()
 if st.session_state["verify_not_buy_ambush_question"] is not None:
     st.write("Based on the previous exercises you picked the Option2 AirForce1 Ambush when the price were \$" + str(
         price) + " each whereas you picked the Option1 AirForce1 when price for the Option2 AirForce1Ambush  were \$" + str(
